@@ -1,0 +1,95 @@
+/* define global colors */
+
+:root {
+    --c-back: #000;
+    
+    --c-studio: #adadad;
+    --c-clock: #c52525;
+    --c-day: #9f2929;
+    --c-labels: #756843;
+    
+    --c-inner: #a1a1a1;
+    --c-outer: #d6bb7f;
+    --c-active: #f00;
+}
+
+/* define the font to use (fonts in the style of "8bit computing" work great) */
+
+@font-face { font-family: 'lcd-font';
+             src: url('../fonts/REGISTER.TTF') format('truetype'); }
+
+body {
+    font-family: 'lcd-font';
+	background-color: var(--c-back);
+    margin: 0;
+    padding: 0;
+}
+
+.type-small { font-size: 2.8vmin; }
+.type-medium {  font-size: 5.6vmin; }
+.type-large { font-size: 10.1vmin; }
+
+.labels { 
+    font-size: 3.5vmin;
+    color: var(--c-labels);
+    position: fixed; }
+
+#wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+#studio {
+	color: var(--c-studio);
+    opacity: 0.75;
+    margin: 0;
+    position: absolute;
+    left: 50vw;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#clock {
+    color: var(--c-clock);
+    margin: 0;
+    position: absolute;
+    left: 50vw;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#day {
+    color: var(--c-day);
+    opacity: 0.75;
+    margin: 0;
+    position: absolute;
+    left: 50vw;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 750px) {
+    #studio { top: 41vh; }
+    #clock { top: 50vh; }
+    #day { top: 59vh; }
+}
+
+@media (min-width: 751px) and (max-width: 1200px) {
+    #studio { top: 40vh; }
+    #clock { top: 50vh; }
+    #day { top: 60vh; }
+}
+
+@media (min-width: 1201px) { 
+    #studio { top: 35vh; }
+    #clock { top: 50vh; }
+    #day { top: 65vh; }
+}
+
+
+/* hidden pseudo-elements in order to use defined colors from CSS (see above) in JS canvas path fillStyle  */
+
+#pseudo-inner { display: none; color: var(--c-inner); }
+#pseudo-outer { display: none; color: var(--c-outer); }
+#pseudo-active { display: none; color: var(--c-active); }
