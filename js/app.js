@@ -1,3 +1,5 @@
+// STUDIOCLOCK - a simple local web implentation of the clocks used in radio and video broadcast studio environments | https://www.github.com/kretchy/studiockock 
+
 // -----------------------------------
 // --- customize ---------------------
 // -----------------------------------
@@ -8,25 +10,27 @@ var radiusInnerFactor = 2.9;
 var radiusOuterFactor = 2.6;
 var radiusLabelsFactor = 2.25;
 
-// define factors for dot size (inner and outer circle) - relative to window height
-// the smaller the value, the larger the dot size (initial value 60)
+// define factors for distance (up and down) for meta information = #studio, #day
+
+var distanceUp = 0.75;
+var distanceDown = 1.25;
+
+// define factors for dot size (inner and outer circle) - relative to window height - the smaller the value, the larger the dot size (initial value 60)
 
 var dotSizeFactor = 55;
+
+// --------------------------------------
+// --- *** no customization below *** ---
+// --------------------------------------
 
 // import colors from pseudo html-dvis (this way the color definition can remain in CSS)
 
 var sourceInner = document.getElementById("pseudo-inner");
 var colorInner = window.getComputedStyle(sourceInner,null).getPropertyValue("color");
-
 var sourceOuter = document.getElementById("pseudo-outer");
 var colorOuter = window.getComputedStyle(sourceOuter,null).getPropertyValue("color");
-
 var sourceActive = document.getElementById("pseudo-active");
 var colorActive = window.getComputedStyle(sourceActive,null).getPropertyValue("color");
-
-// -----------------------------------
-// --- no real customization below ---
-// -----------------------------------
 
 // define number of dots on the inner and outer circle
 
@@ -35,14 +39,13 @@ var theDotsOuter = 12;
 
 // define canvas object, precalculate some variables for the circle
 
-var canvas = document.getElementById("outer");
+var canvas = document.getElementById("the_circle");
 var context = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 var intervalInner = (Math.PI*2)/theDotsInner;   
 
-// define the radius of the dotted circle according to window dimensions
-// aiming for the perfect centered fit 
+// define the radius of the dotted circle according to window dimensions aiming for the perfect centered fit, with reasonable distance from the digital clock
 
 if ( window.innerHeight <= window.innerWidth ) {
 	var theDimension = window.innerHeight;
@@ -121,8 +124,16 @@ function singleTopOuter(theColor) {
 	context.fill();
 }
 
-// get the current time and overwrite the content of html-divs with id "clock" and "day",
-// the secondsInt serves as the base for redrawing the dots on the inner and outer circle
+// calculate best position for meta information #studio and #day (relative to window height)
+
+function initMetaPosition(disUp,disDown) {
+	var studioPosY = (window.innerHeight/2)*disUp;
+	var dayPosY = (window.innerHeight/2)*disDown;
+	document.getElementById("studio").style.top = studioPosY + "px";
+	document.getElementById("day").style.top = dayPosY + "px";
+}
+
+// get the current time and overwrite the content of html-divs with id "clock" and "day", the secondsInt serves as the base for redrawing the dots on the inner and outer circle
 
 function updateClock() {
 	
@@ -155,11 +166,12 @@ function updateClock() {
 	}
 }
 
-// initiatlize (onload) the inner and outer circle as well as rewriting the label positions
+// initiatlize (onload) the inner and outer circle as well as rewriting the label positions, also put the meta information (#studio and #day) with a distance to the digital clock relative to the window height
 
 initInnerClock(theDotsInner,0,colorInner);
 initOuterClock(theDotsOuter,0,colorOuter);
 initLabelsClock(theDotsOuter,0);
+initMetaPosition(distanceUp,distanceDown);
 
 // every second (interval: 1000 ms) update the clock (numbers and dots)
 

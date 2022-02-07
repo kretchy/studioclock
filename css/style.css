@@ -1,4 +1,17 @@
-/* define global colors */
+/* STUDIOCLOCK - a simple local web implentation of the clocks used in radio and video broadcast studio environments | https://www.github.com/kretchy/studiockock */
+
+/*  ----------------------------
+    --- define global colors --- 
+    ----------------------------
+        back ... background
+        studio ... name of studio
+        clock ... digital clock in the center HH:MM:SS format
+        day ... day insert below digital clock in YYYY-MM-DD format
+        labels ... the 5 minute number labels around the dotted circle
+        inner ... basic color of inner circle
+        outer ... basic color of outer circle
+        active ... the color for the highlighted state of inner and outer circle
+    ---------------------------- */
 
 :root {
     --c-back: #000;
@@ -13,10 +26,24 @@
     --c-active: #f00;
 }
 
-/* define the font to use (fonts in the style of "8bit computing" work great) */
+/*  ------------------------------------------------ */
+/*  --- define the font for the clock and labels --- */
+/*  ------------------------------------------------ */
 
 @font-face { font-family: 'lcd-font';
              src: url('../fonts/REGISTER.TTF') format('truetype'); }
+
+/*  -------------------------------------------------------------------- */
+/*  --- define the font sizes for clock, meta information and labels --- */
+/*  -------------------------------------------------------------------- */
+
+.type-small { font-size: 2.8vmin; }
+.type-medium {  font-size: 5.6vmin; }
+.type-large { font-size: 10.1vmin; }
+
+/*  ------------------------------------------------- */
+/*  --- *** no customization below this point *** --- */
+/*  ------------------------------------------------- */
 
 body {
     font-family: 'lcd-font';
@@ -25,20 +52,20 @@ body {
     padding: 0;
 }
 
-.type-small { font-size: 2.8vmin; }
-.type-medium {  font-size: 5.6vmin; }
-.type-large { font-size: 10.1vmin; }
-
 .labels { 
     font-size: 3.5vmin;
     color: var(--c-labels);
     position: fixed; }
+
+/* the wrapper (container) necessary for horizontal and vertical centering in CSS  */
 
 #wrapper {
 	position: relative;
 	width: 100%;
 	height: 100%;
 }
+
+/* the three text elements inside the clock - note that all DIVs are vertically centered ('left'), but only the #clock has vertical centering ('top'). the DIVs #studio and #day receive their vertical centering in the JS. */
 
 #studio {
 	color: var(--c-studio);
@@ -55,6 +82,7 @@ body {
     margin: 0;
     position: absolute;
     left: 50vw;
+    top: 50vh;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
@@ -68,25 +96,6 @@ body {
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-
-@media (max-width: 750px) {
-    #studio { top: 41vh; }
-    #clock { top: 50vh; }
-    #day { top: 59vh; }
-}
-
-@media (min-width: 751px) and (max-width: 1200px) {
-    #studio { top: 40vh; }
-    #clock { top: 50vh; }
-    #day { top: 60vh; }
-}
-
-@media (min-width: 1201px) { 
-    #studio { top: 35vh; }
-    #clock { top: 50vh; }
-    #day { top: 65vh; }
-}
-
 
 /* hidden pseudo-elements in order to use defined colors from CSS (see above) in JS canvas path fillStyle  */
 
