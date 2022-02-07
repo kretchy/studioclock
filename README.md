@@ -2,6 +2,10 @@
 
 Studioclock is a simple local web implentation of the clocks used in radio and video broadcast studio environments.
 
+## Pictures speak louder than words
+
+![studioclock](_documentation/studioclock_ani2.gif)
+
 ## Purpose
 
 Official clocks in this field come in many different designs - but their main purpose is a clear representation of the exact time in seconds. This is very **useful for timed shows in live broadcasting**, where the head of production communicates in countdowns in order to make the team members aware of a certain moment to trigger some actions. While watching many different monitors and video sources a central and large clock gives everyone a good orientation. Classical colors in use in broadcasting and recording environments are red on black, with some shades of white or grey for secondary information.
@@ -22,10 +26,6 @@ The idea behind this project was to create a permanently powered little computer
 - Flexible auto scaling for independence of screen size and resolution.
 - Options for customization of colors, font and spacing.
 - Clear and concise code documentation.
-
-## Pictures speak louder than words
-
-![studioclock](_documentation/studioclock_ani2.gif)
 
 ## Approach in development
 
