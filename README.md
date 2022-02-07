@@ -1,6 +1,6 @@
 # studioclock - README
 
-STUDIOCLOCK is a simple local web implentation of the clocks used in radio and video broadcast studio environments.
+Studioclock is a simple local web implentation of the clocks used in radio and video broadcast studio environments.
 
 ## Purpose
 
@@ -22,6 +22,10 @@ The idea behind this project was to create a permanently powered little computer
 - Flexible auto scaling for independence of screen size and resolution.
 - Options for customization of colors, font and spacing.
 - Clear and concise code documentation.
+
+## Pictures speak louder than words
+
+![studioclock](_documentation/studioclock_ani2.gif)
 
 ## Approach in development
 
@@ -61,7 +65,7 @@ This is just a collection of notes and learnings for **further research about im
 - `sudo nano /etc/wpa_suplicant/wpa_supplicant.conf` ... config file for WIFI, but will be (over)writtten by `wicd-curses` (if manual configuration fails)
 - `sudo nano /etc/network/interfaces.d` ... config file for network interfaces
 - `sudo nano /home/pi/.config/lxsession/LXDE-pi/autostart` (older systems)
-- `sudo nano /etc/xdg/lxsession/LXDE-pi/autostart` (newser systems) ... autostart script for the applications to start on X-Server GNOME session in Raspbian
+- `sudo nano /etc/xdg/lxsession/LXDE-pi/autostart` (newer systems) ... autostart script for the applications to start on X-Server GNOME session in Raspbian
 - A simple autostart script would look like this:
 ```
 # disable mouse cursor
