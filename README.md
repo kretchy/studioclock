@@ -4,7 +4,8 @@ Studioclock is a simple local web implentation of the clocks used in radio and v
 
 ## Pictures speak louder than words
 
-![studioclock](_documentation/studioclock_ani2.gif)
+![studioclock - animation](_documentation/studioclock_ani2.gif)
+![studioclock - in use](_documentation/studioclock_real.jpg)
 
 ## Purpose
 
