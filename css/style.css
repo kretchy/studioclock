@@ -1,4 +1,4 @@
-/* STUDIOCLOCK - a simple local web implentation of the clocks used in radio and video broadcast studio environments | https://www.github.com/kretchy/studiockock */
+/* STUDIOCLOCK - a simple local web implementation of the clocks used in radio and video broadcast studio environments | https://www.github.com/kretchy/studiockock */
 
 /*  ----------------------------
     --- define global colors --- 
@@ -42,7 +42,7 @@
 .type-large { font-size: 10.1vmin; }
 
 /*  ------------------------------------------------- */
-/*  --- *** no customization below this point *** --- */
+/*  --- *** no customisation below this point *** --- */
 /*  ------------------------------------------------- */
 
 body {
@@ -65,7 +65,7 @@ body {
 	height: 100%;
 }
 
-/* the three text elements inside the clock - note that all DIVs are vertically centered ('left'), but only the #clock has vertical centering ('top'). the DIVs #studio and #day receive their vertical centering in the JS. */
+/* the three text elements inside the clock - note that all DIVs are vertically centered ('left'), but only the #clock has vertical centering ('top'). the DIVs #studio and #day receive the vertical centering in the JS. */
 
 #studio {
 	color: var(--c-studio);
@@ -97,7 +97,7 @@ body {
     transform: translate(-50%, -50%);
 }
 
-/* hidden pseudo-elements in order to use defined colors from CSS (see above) in JS canvas path fillStyle  */
+/* hidden pseudo-elements in order to use defined colours from CSS (see above) in JS canvas path fillStyle  */
 
 #pseudo-inner { display: none; color: var(--c-inner); }
 #pseudo-outer { display: none; color: var(--c-outer); }

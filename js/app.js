@@ -1,4 +1,4 @@
-// STUDIOCLOCK - a simple local web implentation of the clocks used in radio and video broadcast studio environments | https://www.github.com/kretchy/studiockock 
+// STUDIOCLOCK - a simple local web implementation of the clocks used in radio and video broadcast studio environments | https://www.github.com/kretchy/studiockock 
 
 // -----------------------------------
 // --- customize ---------------------
@@ -20,10 +20,10 @@ var distanceDown = 1.25;
 var dotSizeFactor = 55;
 
 // --------------------------------------
-// --- *** no customization below *** ---
+// --- *** no customisation below *** ---
 // --------------------------------------
 
-// import colors from pseudo html-dvis (this way the color definition can remain in CSS)
+// import colours from pseudo html-divs (this way the color definition can remain in CSS)
 
 var sourceInner = document.getElementById("pseudo-inner");
 var colorInner = window.getComputedStyle(sourceInner,null).getPropertyValue("color");
@@ -93,7 +93,7 @@ function initOuterClock(theLimit,theOffset,theColor) {
 	}
 }
 
-// initialize the label positions on the clock face
+// initialise the label positions on the clock face
 
 function initLabelsClock(theLimit,theOffset) {
 	for(var i=0;i<theLimit;i++){
@@ -166,7 +166,7 @@ function updateClock() {
 	}
 }
 
-// initiatlize (onload) the inner and outer circle as well as rewriting the label positions, also put the meta information (#studio and #day) with a distance to the digital clock relative to the window height
+// initialise (onload) the inner and outer circle as well as rewriting the label positions, also put the meta information (#studio and #day) with a distance to the digital clock relative to the window height
 
 initInnerClock(theDotsInner,0,colorInner);
 initOuterClock(theDotsOuter,0,colorOuter);
